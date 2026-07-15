@@ -1,3 +1,18 @@
+/* ===========================
+   L'Oréal Brand Colors
+=========================== */
+:root {
+  --loreal-black: #000000;
+  --loreal-white: #ffffff;
+  --loreal-red: #e30613;
+
+  --text-primary: #000000;
+  --text-secondary: #555555;
+  --background: #ffffff;
+  --surface: #fafafa;
+  --border: #000000;
+}
+
 /* —— basic reset —— */
 * {
   box-sizing: border-box;
@@ -8,7 +23,8 @@
 /* —— body + fonts —— */
 body {
   font-family: "Montserrat", Arial, Helvetica, sans-serif;
-  color: #333;
+  color: var(--text-primary);
+  background: var(--background);
   display: flex;
   justify-content: center;
 }
@@ -18,49 +34,107 @@ body {
   max-width: 900px;
 }
 
-/* header */
+/* ===========================
+   Header
+=========================== */
+
 .site-header {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   padding-top: 50px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid var(--loreal-red);
+}
+
+.site-logo {
+  width: 100px;
+  height: 27.2px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .site-title {
   font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 10px;
+  font-weight: 600;
+  color: var(--loreal-black);
 }
 
-/* chat window */
+/* ===========================
+   Chat Window
+=========================== */
+
 .chatbox {
   margin: 40px 0;
 }
 
 .chat-window {
   height: 360px;
-  border: 1px solid #000;
+  border: 2px solid var(--border);
   padding: 20px;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 1.6;
   overflow-y: auto;
-  background: #fafafa;
+  background: var(--surface);
   white-space: pre-line;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* messages */
+/* ===========================
+   Messages
+=========================== */
+
 .msg {
-  margin-bottom: 14px;
+  max-width: 78%;
+  padding: 12px 16px;
+  border-radius: 18px;
   line-height: 1.5;
+  word-wrap: break-word;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .msg.user {
-  color: #000;
+  align-self: flex-end;
+  color: var(--loreal-white);
+  background: var(--loreal-red);
+  border-bottom-right-radius: 6px;
 }
 
 .msg.ai {
-  color: #666666;
+  align-self: flex-start;
+  color: var(--text-primary);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom-left-radius: 6px;
 }
 
-/* input row */
+.msg.ai::before,
+.msg.user::before {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.msg.ai::before {
+  content: "Assistant";
+  color: var(--loreal-red);
+}
+
+.msg.user::before {
+  content: "You";
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===========================
+   Input
+=========================== */
+
 .chat-form {
   display: flex;
   gap: 12px;
@@ -70,28 +144,34 @@ body {
 .chat-form input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #ccc;
+  border: 2px solid var(--border);
+  background: var(--background);
+  color: var(--text-primary);
   font-size: 18px;
+  transition: border-color 0.25s;
 }
 
 .chat-form input:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: none;
+  border-color: var(--loreal-red);
+  box-shadow: 0 0 0 3px rgba(227, 6, 19, 0.15);
 }
 
+/* ===========================
+   Button
+=========================== */
+
 .chat-form button {
-  font-size: 18px;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 12px;
   width: 48px;
   height: 48px;
+  border: none;
+  background: var(--loreal-black);
+  color: var(--loreal-white);
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.25s ease;
 }
 
 .chat-form button .material-icons {
@@ -99,15 +179,18 @@ body {
 }
 
 .chat-form button:hover {
-  background: #666666;
+  background: var(--loreal-red);
 }
 
 .chat-form button:focus {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: 2px solid var(--loreal-red);
+  outline-offset: 3px;
 }
 
-/* visually hidden */
+/* ===========================
+   Accessibility
+=========================== */
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -120,12 +203,17 @@ body {
   border: 0;
 }
 
-/* footer */
+/* ===========================
+   Footer
+=========================== */
+
 .site-footer {
   margin: 60px 0 40px;
   text-align: center;
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
+  border-top: 3px solid var(--loreal-red);
+  padding-top: 20px;
 }
 
 .site-footer nav {
@@ -134,10 +222,11 @@ body {
 
 .site-footer a {
   margin: 0 8px;
-  color: #000;
+  color: var(--loreal-black);
   text-decoration: none;
+  transition: color 0.25s;
 }
 
 .site-footer a:hover {
-  color: #666666;
+  color: var(--loreal-red);
 }
