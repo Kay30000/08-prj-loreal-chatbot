@@ -147,6 +147,7 @@ body {
   border: 2px solid var(--border);
   background: var(--background);
   color: var(--text-primary);
+  font-family: inherit;
   font-size: 18px;
   transition: border-color 0.25s;
 }
@@ -171,6 +172,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: inherit;
   transition: background 0.25s ease;
 }
 

@@ -10,7 +10,7 @@ const API_ENDPOINT = "https://loreal.kailebehayes.workers.dev/";
 
 /* Keep the chat in one place so the user can follow the conversation */
 const baseSystemPrompt =
-  "You are a helpful L'Oréal assistant. Answer only questions about L'Oréal products, routines, and recommendations. If the user asks about anything else, respond exactly with: I do not know.";
+  "You are a helpful L'Oréal assistant. Answer only questions about L'Oréal products, routines, and recommendations. If the user asks about anything else, respond exactly with: I apologize, I do not know. Please make the question geared towards L'Oréal products, routines, and recommendations.";
 
 const savedState = loadConversationState();
 const messages = savedState.messages.length > 0 ? savedState.messages : [];
